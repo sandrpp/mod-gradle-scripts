@@ -234,8 +234,11 @@ subprojects {
 }
 
 def java_language_version = JavaLanguageVersion.of(java_version)
-sourceCompatibility = java_language_version
-targetCompatibility = java_language_version
+
+java {
+    sourceCompatibility = java_language_version
+    targetCompatibility = java_language_version
+}
 
 if (hasProperty('java_toolchain_version')) {
     java.toolchain.languageVersion = JavaLanguageVersion.of(getProperty('java_toolchain_version') as int)
